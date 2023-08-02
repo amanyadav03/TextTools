@@ -2,27 +2,39 @@ import React, {useState}from 'react';
 import PropTypes from 'prop-types';
 
 export default function Textform(props) {
+  const[mystyle, setMystyle]=useState({
+    color: 'black',
+  })
   const[text, setText] = useState('');
   
   const handleonClick=()=>{
-    console.log("upper case was clicked" +text)
+   // console.log("upper case was clicked" +text)
     let newText=text.toUpperCase();
     setText(newText)
   }
 
   const handleonClick2=()=>{
-    console.log("lower case was clicked"+text);
+    //console.log("lower case was clicked"+text);
     let newText=text.toLowerCase();
     setText(newText)
   }
   const handleonChange=(event)=>
   {
-    console.log("on Change")
+    //console.log("on Change")
     setText(event.target.value)
+  }
+  const handleOnclear=()=>{
+    setText(" ")
+  }
+  const handleonCopy=()=>{
+    let text = document.getElementById('typetext')
+    // text.select()
+    navigator.clipboard.writeText(text.value)
+
   }
   return (
     <>
-    <div className='container'>
+    <div className='container' style={mystyle}>
         <div className="mb-3 ">
         <label htmlFor="typetext" className="form-label">
         <h2>{props.headings }</h2>
@@ -37,6 +49,8 @@ export default function Textform(props) {
       </div>
       <button className=" btn btn-primary" onClick={handleonClick}>Convert to Upper Case</button>
       <button className=" btn btn-primary mx-2" onClick={handleonClick2}>Convert to Lower Case</button>
+      <button className="btn btn-danger " onClick={handleOnclear}>Clear text</button>
+      <button className="btn btn-success mx-2"onClick={handleonCopy} >Copy Text</button>
     </div>
   
     <div className="container my-5" >
