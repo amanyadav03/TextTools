@@ -10,7 +10,7 @@ function App() {
       <Textform headings='Enter your text here'/>
       </div>
     </>
-<About/>
+/*<About/>*/
   );
 }
 
