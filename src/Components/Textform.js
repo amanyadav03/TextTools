@@ -32,6 +32,10 @@ export default function Textform(props) {
     navigator.clipboard.writeText(text.value)
 
   }
+  const handleonExtraSpaces=()=>{
+    let newText= text.spilt(/[ ]+/);
+    setText(newText.join(" "))
+  }
   return (
     <>
     <div className='container' style={mystyle}>
@@ -51,6 +55,7 @@ export default function Textform(props) {
       <button className=" btn btn-primary mx-2" onClick={handleonClick2}>Convert to Lower Case</button>
       <button className="btn btn-danger " onClick={handleOnclear}>Clear text</button>
       <button className="btn btn-success mx-2"onClick={handleonCopy} >Copy Text</button>
+      <button className="btn btn-success mx-2"onClick={handleonExtraSpaces} >Remove extra spaces</button>
     </div>
   
     <div className="container my-5" >
