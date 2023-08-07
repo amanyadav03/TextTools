@@ -32,10 +32,10 @@ export default function Textform(props) {
     navigator.clipboard.writeText(text.value)
 
   }
-  const handleonExtraSpaces=()=>{
+ /* const handleonExtraSpaces=()=>{
     let newText= text.spilt(/[ ]+/);
     setText(newText.join(" "))
-  }
+  }*/
   return (
     <>
     <div className='container' style={mystyle}>
